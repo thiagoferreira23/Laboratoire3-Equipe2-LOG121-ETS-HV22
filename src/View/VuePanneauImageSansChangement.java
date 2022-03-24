@@ -7,5 +7,5 @@ package View;
  * @version 1.0
  * @since 2022-03-17 9:58 a.m.
  */
-public class PanneauImageSansChangement {
+public class VuePanneauImageSansChangement {
 }

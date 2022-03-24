@@ -7,5 +7,5 @@ package View;
  * @version 1.0
  * @since 2022-03-17 9:59 a.m.
  */
-public class PanneauImageAvecChangements {
+public class VuePanneauImageAvecChangements {
 }
