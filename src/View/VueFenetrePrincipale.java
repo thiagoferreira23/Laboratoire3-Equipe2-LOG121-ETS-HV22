@@ -23,7 +23,7 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     public static final int HAUTEUR = 720;
 
     //Couleur de fond et couleur de texte pour un thème sombre
-    public static final Color BACKGROUND_DARK = Color.decode("#111111");
+    public static final Color BACKGROUND_DARK = Color.decode("#222222");
     public static final Color TEXT_DARK = Color.WHITE;
 
     //Couleur de fond et couleur de texte pour un thème clair
@@ -45,14 +45,17 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
      * l'application, sa taille initiale et ses paramètres de fenêtre.</p>
      */
     private void initComposants(){
-        this.setTitle(TITRE);
-        this.setSize(LONGUEUR, HAUTEUR);
-        this.setResizable(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
+        setTitle(TITRE);
+        setSize(LONGUEUR, HAUTEUR);
+        setResizable(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        getContentPane().setBackground(BACKGROUND_DARK);
+        getContentPane().setForeground(TEXT_DARK);
 
         creerPanneauPrincipal();
-        this.setVisible(true);
+        setVisible(true);
     }
 
     /**
@@ -61,7 +64,8 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
      * Ce panneau sert comme le cœur du contenu de cette application. </p>
      */
     private void creerPanneauPrincipal() {
-
+        VuePanneauPrincipal principal = new VuePanneauPrincipal();
+        add(principal);
     }
 
     /**

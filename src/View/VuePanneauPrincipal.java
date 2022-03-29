@@ -13,9 +13,40 @@ import javax.swing.*;
  */
 public class VuePanneauPrincipal extends JPanel {
 
+    
+
+    /**
+     * <p></p>
+     */
     public VuePanneauPrincipal() {
 
     }
 
+    /**
+     * <p></p>
+     */
+    private void initComposants() {
 
+    }
+
+    /**
+     * <p></p>
+     */
+    private void creerMenu() {
+        VueMenuOptions menu = new VueMenuOptions();
+        add(menu);
+    }
+
+    /**
+     * <p></p>
+     */
+    private void creerVuesImages() {
+        VuePanneauImageSansChangement sansChangement =
+                new VuePanneauImageSansChangement();
+        VuePanneauImageAvecChangements avecChangements =
+                new VuePanneauImageAvecChangements();
+
+        add(sansChangement);
+        add(avecChangements);
+    }
 }
