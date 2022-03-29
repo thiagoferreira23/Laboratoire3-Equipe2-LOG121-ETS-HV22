@@ -1,11 +1,21 @@
 package View;
 
+import javax.swing.*;
+
 /**
- * <p>Description de la classe</p>
+ * <p>Panneau principal qui contiendra le menu et les différents affichages
+ * de cette application. Ce panneau sert comme le cœur du contenu
+ * de cette application.</p>
  *
- * @author Franco Huynh, Gabriel M. Borges & Thiago Ferreira
+ * @author Alexandre Bouillon, Franco Huynh, Gabriel M. Borges & Thiago Ferreira
  * @version 1.0
- * @since 2022-03-17 9:56 a.m.
+ * @since 2022-03-28 8:33 p.m.
  */
-public class VuePanneauPrincipal {
+public class VuePanneauPrincipal extends JPanel {
+
+    public VuePanneauPrincipal() {
+
+    }
+
+
 }

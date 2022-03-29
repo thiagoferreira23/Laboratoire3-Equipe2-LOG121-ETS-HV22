@@ -1,11 +1,75 @@
 package View;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
- * <p>Description de la classe</p>
+ * <p>Cette classe est le conteneur graphique (JFrame) qui est responsable de
+ * contenir tous les éléments graphiques de cette application. Elle permet aussi
+ * d'agir comme élément exécutable de l'application en implémentant
+ * la classe Runnable.</p>
  *
- * @author Franco Huynh, Gabriel M. Borges & Thiago Ferreira
+ * @author Alexandre Bouillon, Franco Huynh, Gabriel M. Borges & Thiago Ferreira
  * @version 1.0
- * @since 2022-03-17 9:56 a.m.
+ * @since 2022-03-28 8:33 p.m.
  */
-public class VueFenetrePrincipale {
+public class VueFenetrePrincipale extends JFrame implements Runnable {
+
+    //Titre de la fenêtre de l'application.
+    public static final String TITRE = "Nom de l'application";
+
+    //Dimensions de la fenêtre d'accueil séparer en longueur et hauteur.
+    public static final int LONGUEUR = 1280;
+    public static final int HAUTEUR = 720;
+
+    //Couleur de fond et couleur de texte pour un thème sombre
+    public static final Color BACKGROUND_DARK = Color.decode("#111111");
+    public static final Color TEXT_DARK = Color.WHITE;
+
+    //Couleur de fond et couleur de texte pour un thème clair
+    public static final Color BACKGROUND_LIGHT = Color.WHITE;
+    public static final Color TEXT_LIGHT = Color.BLACK;
+
+    /**
+     * <p>Cette méthode agit comme constructeur par défaut et permet d'appeler
+     * la méthode qui initialise tout les paramètres de
+     * cette fenêtre d'affichage.</p>
+     */
+    public VueFenetrePrincipale(){
+        initComposants();
+    }
+
+    /**
+     * <p>Cette méthode permet de configurer tous les paramètres de cette
+     * fenêtre d'affichage. Cela inclut, entre autres, le titre de
+     * l'application, sa taille initiale et ses paramètres de fenêtre.</p>
+     */
+    private void initComposants(){
+        this.setTitle(TITRE);
+        this.setSize(LONGUEUR, HAUTEUR);
+        this.setResizable(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+
+        creerPanneauPrincipal();
+        this.setVisible(true);
+    }
+
+    /**
+     * <p>Cette méthode permet de créer une instance du panneau principal qui
+     * contient le menu et les différents affichages de cette application.
+     * Ce panneau sert comme le cœur du contenu de cette application. </p>
+     */
+    private void creerPanneauPrincipal() {
+
+    }
+
+    /**
+     * <p>Cette méthode permet d'exécuter tout les components graphique de
+     * l'application.</p>
+     */
+    @Override
+    public void run() {
+
+    }
 }
