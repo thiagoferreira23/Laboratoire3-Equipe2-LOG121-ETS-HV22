@@ -9,7 +9,7 @@ import java.awt.*;
  * d'agir comme élément exécutable de l'application en implémentant
  * la classe Runnable.</p>
  *
- * @author Alexandre Bouillon, Franco Huynh, Gabriel M. Borges & Thiago Ferreira
+ * @author Thiago Ferreira
  * @version 1.0
  * @since 2022-03-28 8:33 p.m.
  */
@@ -23,12 +23,8 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     public static final int HAUTEUR = 720;
 
     //Couleur de fond et couleur de texte pour un thème sombre
-    public static final Color BACKGROUND_DARK = Color.decode("#222222");
-    public static final Color TEXT_DARK = Color.WHITE;
-
-    //Couleur de fond et couleur de texte pour un thème clair
-    public static final Color BACKGROUND_LIGHT = Color.WHITE;
-    public static final Color TEXT_LIGHT = Color.BLACK;
+    public static final Color BACKGROUND_THEME_FONCE = Color.decode("#222222");
+    public static final Color TEXT_THEME_FONCE = Color.WHITE;
 
     /**
      * <p>Cette méthode agit comme constructeur par défaut et permet d'appeler
@@ -51,8 +47,8 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        getContentPane().setBackground(BACKGROUND_DARK);
-        getContentPane().setForeground(TEXT_DARK);
+        getContentPane().setBackground(BACKGROUND_THEME_FONCE);
+        getContentPane().setForeground(TEXT_THEME_FONCE);
 
         creerPanneauPrincipal();
         creerMenu();
