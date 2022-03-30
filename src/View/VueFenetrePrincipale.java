@@ -14,7 +14,7 @@ import java.awt.*;
  * @since 2022-03-28 8:33 p.m.
  */
 public class VueFenetrePrincipale extends JFrame implements Runnable {
-
+ 
     //Titre de la fenêtre de l'application.
     public static final String TITRE = "Nom de l'application";
 
@@ -55,6 +55,7 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
         getContentPane().setForeground(TEXT_DARK);
 
         creerPanneauPrincipal();
+        creerMenu();
         setVisible(true);
     }
 
@@ -66,6 +67,11 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     private void creerPanneauPrincipal() {
         VuePanneauPrincipal principal = new VuePanneauPrincipal();
         add(principal);
+    }
+
+    private void creerMenu() {
+        VueMenuOptions menu = new VueMenuOptions();
+        setJMenuBar(menu);
     }
 
     /**

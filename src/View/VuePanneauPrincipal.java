@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * <p>Panneau principal qui contiendra le menu et les différents affichages
@@ -13,28 +14,20 @@ import javax.swing.*;
  */
 public class VuePanneauPrincipal extends JPanel {
 
-    
-
     /**
      * <p></p>
      */
     public VuePanneauPrincipal() {
-
+        initComposants();
     }
 
     /**
      * <p></p>
      */
     private void initComposants() {
-
-    }
-
-    /**
-     * <p></p>
-     */
-    private void creerMenu() {
-        VueMenuOptions menu = new VueMenuOptions();
-        add(menu);
+        this.setBorder(BorderFactory.
+                createEmptyBorder(20,20,20,20));
+        this.setBackground(Color.decode("#222222"));
     }
 
     /**
