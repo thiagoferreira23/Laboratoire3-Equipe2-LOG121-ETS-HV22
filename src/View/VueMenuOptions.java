@@ -12,8 +12,7 @@ import java.util.ArrayList;
  */
 public class VueMenuOptions extends JMenuBar {
 
-    private JMenu appMenu = new JMenu();
-    private ArrayList<JMenuItem> itemsMenu = new ArrayList<JMenuItem>();
+    private ArrayList<JMenu> optionsMenu = new ArrayList<JMenu>();
 
     /**
      * <p></p>
@@ -26,8 +25,57 @@ public class VueMenuOptions extends JMenuBar {
      * <p></p>
      */
     private void initComposants() {
-        appMenu.setText("GUILabo3");
-        add(appMenu);
+        creerOptionsMenu();
     }
 
+    private void creerOptionsMenu() {
+        JMenu optionFichier = new JMenu("Fichier");
+        JMenu optionEdition = new JMenu("Édition");
+        JMenu optionAide = new JMenu("Aide");
+
+        optionsMenu.add(optionFichier);
+        optionsMenu.add(optionEdition);
+        optionsMenu.add(optionAide);
+
+        for (JMenu m : optionsMenu) {
+            ajouterOptionsMenu(m);
+            add(m);
+        }
+    }
+
+    private void ajouterOptionsMenu(JMenu menu) {
+        switch (menu.getText()) {
+            case "Fichier" -> ajouterOptionsFichier(menu);
+            case "Édition" -> ajouterOptionsEdition(menu);
+            case "Aide" -> ajouterOptionsAide(menu);
+            default -> System.out.println("Ce menu n'existe pas");
+        }
+    }
+
+    private void ajouterOptionsFichier(JMenu menu) {
+        JMenuItem optionOuvrir = new JMenuItem("Ouvrir");
+        JMenuItem optionSauvegarder = new JMenuItem("Sauvegarder");
+        JMenuItem optionQuitter = new JMenuItem("Quitter");
+
+        menu.add(optionOuvrir);
+        menu.add(optionSauvegarder);
+        menu.add(optionQuitter);
+    }
+
+    private void ajouterOptionsEdition(JMenu menu) {
+        JMenuItem optionRetour = new JMenuItem("Retour");
+        JMenuItem optionRevenir = new JMenuItem("Revenir");
+        JMenuItem optionZoomAvant = new JMenuItem("Zoom avant");
+        JMenuItem optionZoomArriere = new JMenuItem("Zoom arrière");
+
+        menu.add(optionRetour);
+        menu.add(optionRevenir);
+        menu.add(optionZoomAvant);
+        menu.add(optionZoomArriere);
+    }
+
+    private void ajouterOptionsAide(JMenu menu) {
+        JMenuItem optionAPropos = new JMenuItem("À propos");
+        menu.add(optionAPropos);
+    }
 }
