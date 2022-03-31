@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * <p>Panneau principal qui contiendra les différents affichages
@@ -33,6 +34,17 @@ public class VuePanneauPrincipal extends JPanel {
                 createEmptyBorder(20, 20, 20, 20));
         setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+
+        GridBagLayout gbl = new GridBagLayout();
+        GridBagConstraints contraintes = new GridBagConstraints();
+
+        contraintes.gridwidth = 3;
+        contraintes.gridheight = 2;
+
+        gbl.setConstraints(this, contraintes);
+
+        setLayout(gbl);
+        creerVueBienvenue();
     }
 
     /**

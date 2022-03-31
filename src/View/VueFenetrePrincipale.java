@@ -22,6 +22,10 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     public static final int LONGUEUR = 1280;
     public static final int HAUTEUR = 720;
 
+    //Dimensions minimum de la fenêtre d'accueil séparer en longueur et hauteur.
+    public static final int MIN_LONGUEUR = 630;
+    public static final int MIN_HAUTEUR = 500;
+
     //Couleur de fond et couleur de texte pour un thème sombre
     public static final Color BACKGROUND_THEME_CLAIR = Color.decode("#FFFFFF");
     public static final Color DIVISEUR_THEME_CLAIR = Color.decode("#454545");
@@ -44,6 +48,7 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     private void initComposants(){
         setTitle(TITRE);
         setSize(LONGUEUR, HAUTEUR);
+        setMinimumSize(new Dimension(MIN_LONGUEUR, MIN_HAUTEUR));
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
