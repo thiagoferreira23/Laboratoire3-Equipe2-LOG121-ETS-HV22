@@ -35,15 +35,15 @@ public class VuePanneauPrincipal extends JPanel {
         setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
 
-        GridBagLayout gbl = new GridBagLayout();
-        GridBagConstraints contraintes = new GridBagConstraints();
+        GridBagLayout dispositionGrille = new GridBagLayout();
+        GridBagConstraints contraintesDisposition = new GridBagConstraints();
 
-        contraintes.gridwidth = 3;
-        contraintes.gridheight = 2;
+        contraintesDisposition.gridwidth = 3;
+        contraintesDisposition.gridheight = 2;
 
-        gbl.setConstraints(this, contraintes);
+        dispositionGrille.setConstraints(this, contraintesDisposition);
 
-        setLayout(gbl);
+        setLayout(dispositionGrille);
         creerVueBienvenue();
     }
 
