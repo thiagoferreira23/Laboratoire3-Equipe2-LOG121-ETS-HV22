@@ -30,9 +30,19 @@ public class VuePanneauPrincipal extends JPanel {
      */
     private void initComposants() {
         setBorder(BorderFactory.
-                createEmptyBorder(20,20,20,20));
+                createEmptyBorder(20, 20, 20, 20));
         setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+    }
+
+    /**
+     * <p>Cette méthode permet de créer une instacne du panneau de bienvenue
+     * qui sert comme écran d'accueil et qui introduit l'application
+     * à l'usager.</p>
+     */
+    public void creerVueBienvenue() {
+        VuePanneauBienvenue bienvenue = new VuePanneauBienvenue();
+        add(bienvenue);
     }
 
     /**
@@ -41,12 +51,6 @@ public class VuePanneauPrincipal extends JPanel {
      * statique qui ne fait que présenter image à l'usager.</p>
      */
     private void creerVuesImages() {
-        VuePanneauImageSansChangement sansChangement =
-                new VuePanneauImageSansChangement();
-        VuePanneauImageAvecChangements avecChangements =
-                new VuePanneauImageAvecChangements();
 
-        add(sansChangement);
-        add(avecChangements);
     }
 }
