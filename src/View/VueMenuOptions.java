@@ -1,7 +1,6 @@
 package View;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class VueMenuOptions extends JMenuBar {
      * ainsi que les sous options de chacun de ces options.</p>
      */
     private void initComposants() {
-        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_FONCE);
-        setForeground(VueFenetrePrincipale.TEXT_THEME_FONCE);
+        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
+        setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
         setBorder(new MatteBorder(0, 0, 2, 0, Color.decode("#454545")));
 
         creerOptionsMenu();
@@ -55,7 +54,7 @@ public class VueMenuOptions extends JMenuBar {
         optionsMenu.add(optionAide);
 
         for (JMenu m : optionsMenu) {
-            m.setForeground(VueFenetrePrincipale.TEXT_THEME_FONCE);
+            m.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
             ajouterOptionsMenu(m);
             add(m);
         }
@@ -127,8 +126,8 @@ public class VueMenuOptions extends JMenuBar {
      * @param sousOption La sous-option du menu.
      */
     private void configItemMenu(JMenu menu, JMenuItem sousOption) {
-        sousOption.setBackground(Color.decode("#454545"));
-        sousOption.setForeground(VueFenetrePrincipale.TEXT_THEME_FONCE);
+        sousOption.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
+        sousOption.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
 
         menu.add(sousOption);
     }

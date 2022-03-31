@@ -23,8 +23,9 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     public static final int HAUTEUR = 720;
 
     //Couleur de fond et couleur de texte pour un thème sombre
-    public static final Color BACKGROUND_THEME_FONCE = Color.decode("#222222");
-    public static final Color TEXT_THEME_FONCE = Color.WHITE;
+    public static final Color BACKGROUND_THEME_CLAIR = Color.decode("#FFFFFF");
+    public static final Color DIVISEUR_THEME_CLAIR = Color.decode("#454545");
+    public static final Color TEXT_THEME_CLAIR = Color.BLACK;
 
     /**
      * <p>Cette méthode agit comme constructeur par défaut et permet d'appeler
@@ -47,8 +48,8 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        getContentPane().setBackground(BACKGROUND_THEME_FONCE);
-        getContentPane().setForeground(TEXT_THEME_FONCE);
+        getContentPane().setBackground(BACKGROUND_THEME_CLAIR);
+        getContentPane().setForeground(TEXT_THEME_CLAIR);
 
         creerPanneauPrincipal();
         creerMenu();

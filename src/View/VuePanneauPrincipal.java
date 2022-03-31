@@ -31,8 +31,8 @@ public class VuePanneauPrincipal extends JPanel {
     private void initComposants() {
         setBorder(BorderFactory.
                 createEmptyBorder(20,20,20,20));
-        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_FONCE);
-        setForeground(VueFenetrePrincipale.TEXT_THEME_FONCE);
+        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
+        setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
     }
 
     /**
