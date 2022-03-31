@@ -1,8 +1,11 @@
 package View;
 
+import Controller.MenuOptionsControleur;
+
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.util.ArrayList;
 
 /**
@@ -86,10 +89,10 @@ public class VueMenuOptions extends JMenuBar {
         JMenuItem optionRestaurer = new JMenuItem("Restaurer");
         JMenuItem optionQuitter = new JMenuItem("Quitter");
 
-        configItemMenu(menu, optionOuvrir);
-        configItemMenu(menu, optionSauvegarder);
-        configItemMenu(menu, optionRestaurer);
-        configItemMenu(menu, optionQuitter);
+        configItemMenu(menu, 'O', optionOuvrir);
+        configItemMenu(menu, 'S', optionSauvegarder);
+        configItemMenu(menu, 'R', optionRestaurer);
+        configItemMenu(menu, 'Q', optionQuitter);
     }
 
     /**
@@ -103,10 +106,10 @@ public class VueMenuOptions extends JMenuBar {
         JMenuItem optionZoomAvant = new JMenuItem("Zoom avant");
         JMenuItem optionZoomArriere = new JMenuItem("Zoom arrière");
 
-        configItemMenu(menu, optionRetour);
-        configItemMenu(menu, optionRevenir);
-        configItemMenu(menu, optionZoomAvant);
-        configItemMenu(menu, optionZoomArriere);
+        configItemMenu(menu, 'Z', optionRetour);
+        configItemMenu(menu, 'Y', optionRevenir);
+        configItemMenu(menu, '+', optionZoomAvant);
+        configItemMenu(menu, '-', optionZoomArriere);
     }
 
     /**
@@ -116,7 +119,7 @@ public class VueMenuOptions extends JMenuBar {
      */
     private void ajouterOptionsAide(JMenu menu) {
         JMenuItem optionAPropos = new JMenuItem("À propos");
-        configItemMenu(menu, optionAPropos);
+        configItemMenu(menu, '1', optionAPropos);
     }
 
     /**
@@ -125,10 +128,20 @@ public class VueMenuOptions extends JMenuBar {
      * @param menu       Le menu auquel les options doivent être ajoutées.
      * @param sousOption La sous-option du menu.
      */
-    private void configItemMenu(JMenu menu, JMenuItem sousOption) {
+    private void configItemMenu(JMenu menu, char touche, JMenuItem sousOption) {
         sousOption.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
         sousOption.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
 
+        if (System.getProperty("os.name").equals("Mac OS X")) {
+
+            sousOption.setAccelerator(KeyStroke.getKeyStroke(touche,
+                    InputEvent.META_DOWN_MASK));
+        } else {
+            sousOption.setAccelerator(KeyStroke.getKeyStroke(touche,
+                    InputEvent.CTRL_DOWN_MASK));
+        }
+
+        sousOption.addActionListener(new MenuOptionsControleur());
         menu.add(sousOption);
     }
 }
