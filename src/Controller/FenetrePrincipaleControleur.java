@@ -1,5 +1,4 @@
 package Controller;
-
 /**
  * <p>Description de la classe</p>
  *
@@ -7,5 +6,7 @@ package Controller;
  * @version 1.0
  * @since 2022-03-17 9:57 a.m.
  */
-public class ControlleurMenu {
+public class FenetrePrincipaleControleur {
+
+
 }
