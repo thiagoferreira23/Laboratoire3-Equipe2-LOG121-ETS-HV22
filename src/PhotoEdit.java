@@ -11,7 +11,7 @@ import javax.swing.*;
  * @since 2022-03-28 8:33 p.m.
  */
 
-public class GUILabo3 {
+public class PhotoEdit {
     public static void main(String[] args) {
 
         //Instancier la classe FenetreAccueil

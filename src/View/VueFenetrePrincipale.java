@@ -16,7 +16,7 @@ import java.awt.*;
 public class VueFenetrePrincipale extends JFrame implements Runnable {
  
     //Titre de la fenêtre de l'application.
-    public static final String TITRE = "Nom de l'application";
+    public static final String TITRE = "PhotoEdit";
 
     //Dimensions de la fenêtre d'accueil séparer en longueur et hauteur.
     public static final int LONGUEUR = 1280;
