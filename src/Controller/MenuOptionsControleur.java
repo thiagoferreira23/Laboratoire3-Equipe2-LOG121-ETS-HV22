@@ -88,6 +88,9 @@ public class MenuOptionsControleur implements ActionListener {
      * à partir du menu.</p>
      */
     private void actionsOptionRestaurer() {
+        File fichierChoisi = ouvrirExplorateurFichier("Choisir un fichier " +
+                        "de sauvegarde", "src/Ressources", ".tmp",
+                new String[]{"tmp"});
     }
 
     /**
@@ -96,7 +99,9 @@ public class MenuOptionsControleur implements ActionListener {
      * à partir du menu.</p>
      */
     private void actionsOptionOuvrir() {
-        File fichierChoisi = ouvrirExplorateurFichierImage();
+        File fichierChoisi = ouvrirExplorateurFichier("Choisir une image",
+                "src/Images", "PNG, JPG, JPEG",
+                new String[]{"png", "jpg", "jpeg"});
     }
 
     /**
@@ -106,14 +111,15 @@ public class MenuOptionsControleur implements ActionListener {
      *
      * @return Le fichier de type « File » choisi par l'usager.
      */
-    private File ouvrirExplorateurFichierImage() {
-        JFileChooser selecteur = new JFileChooser("src/Images");
+    private File ouvrirExplorateurFichier(String titre, String cheminInitial,
+                                          String descriptionExt,
+                                          String[] extension) {
+        JFileChooser selecteur = new JFileChooser(cheminInitial);
 
         FileNameExtensionFilter filtrerAvecExtension =
-                new FileNameExtensionFilter("PNG, JPG, JPEG",
-                        "png", "jpg", "jpeg");
+                new FileNameExtensionFilter(descriptionExt, extension);
 
-        selecteur.setDialogTitle("Choisir une image");
+        selecteur.setDialogTitle(titre);
         selecteur.setAcceptAllFileFilterUsed(true);
         selecteur.addChoosableFileFilter(filtrerAvecExtension);
         selecteur.setFileFilter(filtrerAvecExtension);
