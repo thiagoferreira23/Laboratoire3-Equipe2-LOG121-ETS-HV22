@@ -128,6 +128,11 @@ public class VueMenuOptions extends JMenuBar {
         sousOption.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
         sousOption.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
 
+        /*
+        * Cet IF-ELSE permet de détecter le type de système d'exploitation sur
+        * lequel l'application est exécutée et d'assigner les bonnes touches de
+        * raccourcis correspondants.
+        */
         if (System.getProperty("os.name").equals("Mac OS X")) {
 
             sousOption.setAccelerator(KeyStroke.getKeyStroke(touche,

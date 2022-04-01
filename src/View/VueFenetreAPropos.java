@@ -65,6 +65,13 @@ public class VueFenetreAPropos extends JFrame {
         add(panneauAPropos);
     }
 
+    /**
+     * <p>Cette méthode permet de configurer le panneau À Propos avec
+     * ses paramètres et son contenu unique.</p>
+     *
+     * @param panneau Le panneau qui recevra les paramètres et
+     *                qui contiendra le contenu.
+     */
     private void configPanneau(JPanel panneau) {
 
         panneau.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
@@ -77,7 +84,7 @@ public class VueFenetreAPropos extends JFrame {
                 "Ferreira, Thiago<br>Huynh, Franco</body></html>/n", SwingConstants.CENTER);
         JLabel messageDroitsAuteur = new JLabel("© Tous droits réservés.");
 
-        JLabel logo = ajouterImage("App", 200, 200);
+        JLabel logo = VuePanneauPrincipal.creerImage("App", 180, 180);
 
         logo.setAlignmentX(Component.CENTER_ALIGNMENT);
         messageCreateurs.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -85,41 +92,7 @@ public class VueFenetreAPropos extends JFrame {
 
         panneau.add(logo, BorderLayout.CENTER);
         panneau.add(messageCreateurs, BorderLayout.CENTER);
+        panneau.add(Box.createRigidArea(new Dimension(0, 10)));
         panneau.add(messageDroitsAuteur, BorderLayout.CENTER);
     }
-
-    /**
-     * <p>Permet d'ajouter une image au panneau.</p>
-     *
-     * @param nomFichier Le nom exact du fichier de l'image
-     * @param longueur   La longueur de l'image
-     * @param hauteur    La hauteur de l'image
-     */
-    private JLabel ajouterImage(String nomFichier, int longueur, int hauteur) {
-        try {
-            String typeFichierPNG = ".png";
-            String cheminDeBaseImages = "/Images/";
-
-            BufferedImage typeImage;
-            ImageIcon image;
-            JLabel libelleImage;
-
-            String chemin = cheminDeBaseImages + nomFichier + typeFichierPNG;
-
-            typeImage = ImageIO.read(this.getClass().getResource(chemin));
-            image = new ImageIcon(typeImage);
-            Image img = image.getImage();
-            Image nouvImage = img.getScaledInstance(longueur,
-                    hauteur, Image.SCALE_SMOOTH);
-            image = new ImageIcon(nouvImage);
-            libelleImage = new JLabel(image);
-
-            return libelleImage;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
 }

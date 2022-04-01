@@ -1,7 +1,12 @@
 package View;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * <p>Panneau principal qui contiendra les différents affichages
@@ -64,5 +69,41 @@ public class VuePanneauPrincipal extends JPanel {
      */
     private void creerVuesImages() {
 
+    }
+
+
+    /**
+     * <p>Permet de créer un libellée contenant une image désirée qui se
+     * retrouve dans le dossier Images de ce projet.</p>
+     *
+     * @param nomFichier Le nom exact du fichier de l'image
+     * @param longueur   La longueur de l'image
+     * @param hauteur    La hauteur de l'image
+     */
+    public static JLabel creerImage(String nomFichier, int longueur, int hauteur) {
+        try {
+            String typeFichierPNG = ".png";
+            String cheminDeBaseImages = "/Images/";
+
+            BufferedImage typeImage;
+            ImageIcon image;
+            JLabel libelleImage;
+
+            String chemin = cheminDeBaseImages + nomFichier + typeFichierPNG;
+
+            typeImage = ImageIO.read(VuePanneauPrincipal.class.getResource(chemin));
+            image = new ImageIcon(typeImage);
+            Image img = image.getImage();
+            Image nouvImage = img.getScaledInstance(longueur,
+                    hauteur, Image.SCALE_SMOOTH);
+            image = new ImageIcon(nouvImage);
+            libelleImage = new JLabel(image);
+
+            return libelleImage;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
