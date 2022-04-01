@@ -3,8 +3,10 @@ package Controller;
 import View.VueFenetreAPropos;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  * <p> Cette classe permet de controller les actions qui sont demander par
@@ -94,5 +96,36 @@ public class MenuOptionsControleur implements ActionListener {
      * à partir du menu.</p>
      */
     private void actionsOptionOuvrir() {
+        File fichierChoisi = ouvrirExplorateurFichierImage();
+    }
+
+    /**
+     * Cette méthode permet de créer un sélecteur de fichier qui n'accepte que
+     * les fichiers de type PNG, JPG et JPEG. Par la suite, elle retourne ce
+     * fichier sous le format d'un « File ».
+     *
+     * @return Le fichier de type « File » choisi par l'usager.
+     */
+    private File ouvrirExplorateurFichierImage() {
+        JFileChooser selecteur = new JFileChooser("src/Images");
+
+        FileNameExtensionFilter filtrerAvecExtension =
+                new FileNameExtensionFilter("PNG, JPG, JPEG",
+                        "png", "jpg", "jpeg");
+
+        selecteur.setDialogTitle("Choisir une image");
+        selecteur.setAcceptAllFileFilterUsed(true);
+        selecteur.addChoosableFileFilter(filtrerAvecExtension);
+        selecteur.setFileFilter(filtrerAvecExtension);
+
+        int statut = selecteur.showOpenDialog(null);
+
+        if (statut == JFileChooser.APPROVE_OPTION) {
+            System.out.println("le nom et l'extension de l'image choisie : " +
+                    selecteur.getSelectedFile().getName());
+
+            return selecteur.getSelectedFile();
+        }
+        return null;
     }
 }
