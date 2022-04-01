@@ -72,6 +72,7 @@ public class MenuOptionsControleur implements ActionListener {
      * à partir du menu.</p>
      */
     private void actionsOptionQuitter() {
+        System.exit(1);
     }
 
     /**
