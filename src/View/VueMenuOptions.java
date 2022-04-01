@@ -103,13 +103,9 @@ public class VueMenuOptions extends JMenuBar {
     private void ajouterOptionsEdition(JMenu menu) {
         JMenuItem optionRetour = new JMenuItem("Retour");
         JMenuItem optionRevenir = new JMenuItem("Revenir");
-        JMenuItem optionZoomAvant = new JMenuItem("Zoom avant");
-        JMenuItem optionZoomArriere = new JMenuItem("Zoom arrière");
 
         configItemMenu(menu, 'Z', optionRetour);
         configItemMenu(menu, 'Y', optionRevenir);
-        configItemMenu(menu, '+', optionZoomAvant);
-        configItemMenu(menu, '-', optionZoomArriere);
     }
 
     /**
