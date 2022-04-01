@@ -57,7 +57,7 @@ public class VuePanneauPrincipal extends JPanel {
      * qui sert comme écran d'accueil et qui introduit l'application
      * à l'usager.</p>
      */
-    public void creerVueBienvenue() {
+    private void creerVueBienvenue() {
         VuePanneauBienvenue bienvenue = new VuePanneauBienvenue();
         add(bienvenue);
     }
