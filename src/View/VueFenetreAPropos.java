@@ -1,10 +1,7 @@
 package View;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  * <p>Cette classe contient le menu d’options de l’application.
@@ -46,9 +43,9 @@ public class VueFenetreAPropos extends JFrame {
         setLocationRelativeTo(null);
 
         getContentPane().setBackground(
-                VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
+                VueFenetrePrincipale.FOND_THEME_CLAIR);
         getContentPane().setForeground(
-                VueFenetrePrincipale.TEXT_THEME_CLAIR);
+                VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
         creerPanneau();
         setVisible(true);
@@ -74,8 +71,8 @@ public class VueFenetreAPropos extends JFrame {
      */
     private void configPanneau(JPanel panneau) {
 
-        panneau.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
-        panneau.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+        panneau.setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+        panneau.setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
         panneau.setLayout(new BoxLayout(panneau, BoxLayout.Y_AXIS));
 

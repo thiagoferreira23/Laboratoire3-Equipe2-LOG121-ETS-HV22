@@ -1,10 +1,7 @@
 package View;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  * <p>Cette classe créé et configure un panneau de bienvenue qui sert comme
@@ -41,8 +38,8 @@ public class VuePanneauBienvenue extends JPanel {
      */
     private void initComposants() {
 
-        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
-        setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+        setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+        setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

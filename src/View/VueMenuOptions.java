@@ -36,8 +36,8 @@ public class VueMenuOptions extends JMenuBar {
      * ainsi que les sous options de chacun de ces options.</p>
      */
     private void initComposants() {
-        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
-        setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+        setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+        setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
         setBorder(new MatteBorder(0, 0, 2, 0, Color.decode("#454545")));
 
         creerOptionsMenu();
@@ -57,7 +57,7 @@ public class VueMenuOptions extends JMenuBar {
         optionsMenu.add(optionAide);
 
         for (JMenu m : optionsMenu) {
-            m.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+            m.setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
             ajouterOptionsMenu(m);
             add(m);
         }
@@ -125,8 +125,8 @@ public class VueMenuOptions extends JMenuBar {
      * @param sousOption La sous-option du menu.
      */
     private void configItemMenu(JMenu menu, char touche, JMenuItem sousOption) {
-        sousOption.setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
-        sousOption.setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+        sousOption.setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+        sousOption.setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
         /*
          * Cet IF-ELSE permet de détecter le type de système d'exploitation sur

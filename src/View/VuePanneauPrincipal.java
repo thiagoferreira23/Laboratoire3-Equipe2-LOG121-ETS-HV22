@@ -4,9 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * <p>Panneau principal qui contiendra les différents affichages
@@ -37,19 +35,23 @@ public class VuePanneauPrincipal extends JPanel {
     private void initComposants() {
         setBorder(BorderFactory.
                 createEmptyBorder(20, 20, 20, 20));
-        setBackground(VueFenetrePrincipale.BACKGROUND_THEME_CLAIR);
-        setForeground(VueFenetrePrincipale.TEXT_THEME_CLAIR);
+        setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+        setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
+
+        setSize(VueFenetrePrincipale.LONGUEUR, VueFenetrePrincipale.HAUTEUR);
 
         GridBagLayout dispositionGrille = new GridBagLayout();
         GridBagConstraints contraintesDisposition = new GridBagConstraints();
 
-        contraintesDisposition.gridwidth = 3;
-        contraintesDisposition.gridheight = 2;
+        //contraintesDisposition.gridwidth = 3;
+        //contraintesDisposition.gridheight = 2;
 
-        dispositionGrille.setConstraints(this, contraintesDisposition);
+        //dispositionGrille.setConstraints(this, contraintesDisposition);
 
-        setLayout(dispositionGrille);
-        creerVueBienvenue();
+        //setLayout(dispositionGrille);
+        //creerVueBienvenue();
+        creerVuesImages();
+
     }
 
     /**
@@ -68,7 +70,8 @@ public class VuePanneauPrincipal extends JPanel {
      * statique qui ne fait que présenter image à l'usager.</p>
      */
     private void creerVuesImages() {
-
+        VuePanneauImage contenuImage = new VuePanneauImage();
+        add(contenuImage);
     }
 
 
