@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * <p> Cette classe permet de controller les actions qui sont demander par
- * le menu de l"application. Cela inclus, entres autres, l'ouverture d'un
- * fichier, la sauvegarde de paramètres, la commande défaire et
- * la commande refaire.
+ * <p>
+ * Cette classe permet de contrôler les actions qui sont demandées par le menu
+ * de l'application. Cela inclut, entre autres, l'ouverture d'un fichier,
+ * la sauvegarde de paramètres, la possibilité de défaire et refaire une action.
  * </p>
  *
  * @author Thiago Ferreira & autres...
@@ -22,9 +22,11 @@ import java.io.File;
 public class MenuOptionsControleur implements ActionListener {
 
     /**
-     * <p>Cette méthode fait appel, à l'aide d'un switch, aux méthodes qui
-     * correspondent à l'action de celui qui l'appelle en analysant son
-     * nom (événement).</p>
+     * <p>
+     * Cette méthode fait appel, à l'aide d'un interrupteur (switch),
+     * aux méthodes qui correspondent à l'action de celui qui l'appelle
+     * en analysant son nom (événement).
+     * </p>
      *
      * @param e L'événement déclencheur de l'action
      */
