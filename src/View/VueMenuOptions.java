@@ -9,9 +9,12 @@ import java.awt.event.InputEvent;
 import java.util.ArrayList;
 
 /**
- * <p>Cette classe contient le menu d’options de l’application.
- * Elle permet d’ouvrir un fichier d’image, de sauvegarder des paramètres,
- * de charger des paramètres et d’accéder à un menu d’aide.</p>
+ * <p>
+ * Cette classe contient le menu d’options de l’application. Elle permet
+ * d’ouvrir un fichier d’image, de sauvegarder des paramètres,
+ * de charger des paramètres, l'option de revenir en arrière ou en
+ * avant sur des changements et d’accéder à un menu d’aide.
+ * </p>
  *
  * @author Thiago Ferreira
  * @version 1.0
@@ -31,9 +34,11 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode permet de configurer tous les paramètres de ce menu.
-     * Cela inclut, les trois options du menu (Fichier, édition et aide),
-     * ainsi que les sous options de chacun de ces options.</p>
+     * <p>
+     * Cette méthode permet de configurer tous les paramètres de ce menu.
+     * Cela inclut les trois options du menu (Fichier, édition et aide),
+     * ainsi que les sous-options de chacune de ces options.
+     * </p>
      */
     private void initComposants() {
         setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
@@ -64,8 +69,10 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode permet d'ajouter à chacune des options principale du
-     * menu leurs sous actions (par exemple, ouvrir, sauvegarder, etc.).</p>
+     * <p>
+     * Cette méthode permet d'ajouter à chacune des options principales
+     * du menu leurs sous-actions (par exemple, ouvrir, sauvegarder, etc.).
+     * </p>
      *
      * @param menu Le menu auquel les options doivent être ajoutées.
      */
@@ -79,7 +86,7 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode ajoute les options du l'option Fichier menu.</p>
+     * <p>Cette méthode ajoute les options à l'option Fichier du menu.</p>
      *
      * @param menu Le menu auquel les options doivent être ajoutées.
      */
@@ -96,7 +103,7 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode ajoute les options du l'option Édition menu.</p>
+     * <p>Cette méthode ajoute les options à l'option Édition du menu.</p>
      *
      * @param menu Le menu auquel les options doivent être ajoutées.
      */
@@ -109,7 +116,7 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode ajoute les options du l'option Aide menu.</p>
+     * <p>Cette méthode ajoute les options à l'option Aide du menu.</p>
      *
      * @param menu Le menu auquel les options doivent être ajoutées.
      */
@@ -119,7 +126,12 @@ public class VueMenuOptions extends JMenuBar {
     }
 
     /**
-     * <p>Cette méthode permet de configurer les paramètres des items du menu.</p>
+     * <p>
+     * Cette méthode permet de configurer les paramètres par défaut des
+     * items du menu. Cela inclut leurs couleurs, leurs raccourcis clavier
+     * dépendants du système d'exploitation, ainsi que les écouteurs
+     * d'événements.
+     * </p>
      *
      * @param menu       Le menu auquel les options doivent être ajoutées.
      * @param sousOption La sous-option du menu.
@@ -129,9 +141,9 @@ public class VueMenuOptions extends JMenuBar {
         sousOption.setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
         /*
-         * Cet IF-ELSE permet de détecter le type de système d'exploitation sur
-         * lequel l'application est exécutée et d'assigner les bonnes touches de
-         * raccourcis correspondants.
+         * Cette instruction « if-else » permet de détecter le type de système
+         * d'exploitation sur lequel l'application est exécutée et d'assigner
+         * les bonnes touches de raccourcis correspondants.
          */
         if (System.getProperty("os.name").equals("Mac OS X")) {
             sousOption.setAccelerator(KeyStroke.getKeyStroke(touche,

@@ -27,10 +27,12 @@ public class VuePanneauPrincipal extends JPanel {
     }
 
     /**
-     * <p>Cette méthode permet de configurer tous les paramètres de ce panneau
-     * principal contenant le contenu de l'application. Cela inclut, les trois
-     * vues de l'application, ainsi que les paramètres de ce panneau
-     * spécifique.</p>
+     * <p>
+     * Cette méthode permet de configurer tous les paramètres de ce panneau
+     * principal contenant le contenu de l'application. Cela inclut,
+     * l'instanciation de la vue bienvenue, ainsi que les paramètres de ce
+     * panneau.
+     * </p>
      */
     private void initComposants() {
         setBorder(BorderFactory.
@@ -43,21 +45,21 @@ public class VuePanneauPrincipal extends JPanel {
         GridBagLayout dispositionGrille = new GridBagLayout();
         GridBagConstraints contraintesDisposition = new GridBagConstraints();
 
-        //contraintesDisposition.gridwidth = 3;
-        //contraintesDisposition.gridheight = 2;
+        contraintesDisposition.gridwidth = 3;
+        contraintesDisposition.gridheight = 2;
 
-        //dispositionGrille.setConstraints(this, contraintesDisposition);
+        dispositionGrille.setConstraints(this, contraintesDisposition);
 
-        //setLayout(dispositionGrille);
-        //creerVueBienvenue();
-        creerVuesImages();
-
+        setLayout(dispositionGrille);
+        creerVueBienvenue();
     }
 
     /**
-     * <p>Cette méthode permet de créer une instacne du panneau de bienvenue
-     * qui sert comme écran d'accueil et qui introduit l'application
-     * à l'usager.</p>
+     * <p>
+     * Cette méthode permet de créer une instance du panneau de bienvenue
+     * qui sert comme écran d'accueil et qui introduit l'application à
+     * l'usager.
+     * </p>
      */
     private void creerVueBienvenue() {
         VuePanneauBienvenue bienvenue = new VuePanneauBienvenue();
@@ -65,19 +67,23 @@ public class VuePanneauPrincipal extends JPanel {
     }
 
     /**
-     * <p>Cette méthode permet de créer une instance des panneaux contenant le
+     * <p>
+     * Cette méthode permet de créer une instance des panneaux contenant le
      * fichier d'image dont l'utilisateur pourra interagir, ainsi qu'un panneau
-     * statique qui ne fait que présenter image à l'usager.</p>
+     * statique qui ne fait que présenter l'image à l'usager.
+     * </p>
      */
     private void creerVuesImages() {
         VuePanneauImage contenuImage = new VuePanneauImage();
         add(contenuImage);
     }
 
-
     /**
-     * <p>Permet de créer un libellée contenant une image désirée qui se
-     * retrouve dans le dossier Images de ce projet.</p>
+     * <p>
+     * Cette méthode publique accessible par l'entièreté du programme permet
+     * de créer un libellé contenant une image désirée qui se retrouve dans le
+     * dossier Images de ce projet.
+     * </p>
      *
      * @param nomFichier Le nom exact du fichier de l'image
      * @param longueur   La longueur de l'image

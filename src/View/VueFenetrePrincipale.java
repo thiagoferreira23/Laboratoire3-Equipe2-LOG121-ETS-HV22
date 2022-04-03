@@ -26,7 +26,7 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     public static final int MIN_LONGUEUR = 630;
     public static final int MIN_HAUTEUR = 500;
 
-    //Couleur de fond et couleur de texte pour un thème sombre
+    //Couleur de fond et couleur de texte pour un thème clair
     public static final Color FOND_THEME_CLAIR = Color.decode("#FFFFFF");
     public static final Color DIVISEUR_THEME_CLAIR = Color.decode("#454545");
     public static final Color TEXTE_THEME_CLAIR = Color.BLACK;
@@ -62,23 +62,35 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     }
 
     /**
-     * <p>Cette méthode permet de créer une instance du panneau principal qui
-     * contient le menu et les différents affichages de cette application.
-     * Ce panneau sert comme le cœur du contenu de cette application. </p>
+     * <p>
+     *     Cette méthode permet de créer une instance du panneau principal qui
+     *     contient les différents affichages de cette application. Ce panneau
+     *     sert comme le cœur du contenu de cette application.
+     * </p>
      */
     private void creerPanneauPrincipal() {
         VuePanneauPrincipal principal = new VuePanneauPrincipal();
         add(principal);
     }
 
+    /**
+     * <p>
+     *     Cette méthode permet de créer une instance du menu de l'application
+     *     qui contient toutes les différentes options. Cela inclut,
+     *     entre autres, l'ouverture et la sauvegarde de fichier et l'option
+     *     de revenir en arrière ou en avant sur des changements.
+     * </p>
+     */
     private void creerMenu() {
         VueMenuOptions menu = new VueMenuOptions();
         setJMenuBar(menu);
     }
 
     /**
-     * <p>Cette méthode permet d'exécuter tout les components graphique de
-     * l'application.</p>
+     * <p>
+     *     Cette méthode permet d'exécuter tous les composants graphiques
+     *     de l'application.
+     * </p>
      */
     @Override
     public void run() {

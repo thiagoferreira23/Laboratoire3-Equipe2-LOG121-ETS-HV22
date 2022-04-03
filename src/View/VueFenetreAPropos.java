@@ -4,9 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * <p>Cette classe contient le menu d’options de l’application.
- * Elle permet d’ouvrir un fichier d’image, de sauvegarder des paramètres,
- * de charger des paramètres et d’accéder à un menu d’aide.</p>
+ * <p>
+ *     Cette classe est le conteneur graphique (JFrame) qui est responsable de
+ *     contenir tous les éléments graphiques de la page contenant des
+ *     informations sur les créateurs de cette application (À propos).
+ *     Elle crée le contenu à l’aide d’un panneau (JPanel).
+ * </p>
  *
  * @author Thiago Ferreira
  * @version 1.0
@@ -52,9 +55,12 @@ public class VueFenetreAPropos extends JFrame {
     }
 
     /**
-     * <p>Cette méthode permet de créer une instance du panneau principal qui
-     * contient le menu et les différents affichages de cette application.
-     * Ce panneau sert comme le cœur du contenu de cette application. </p>
+     * <p>
+     *     Cette méthode permet de créer une instance du panneau qui contient
+     *     les informations des créateurs de l'application, les informations
+     *     légales, ainsi que le logo de l'application. Ce panneau sert comme
+     *     le cœur du contenu de la fenêtre VueFenetreAPropos.
+     * </p>
      */
     private void creerPanneau() {
         JPanel panneauAPropos = new JPanel();
@@ -63,8 +69,10 @@ public class VueFenetreAPropos extends JFrame {
     }
 
     /**
-     * <p>Cette méthode permet de configurer le panneau À Propos avec
-     * ses paramètres et son contenu unique.</p>
+     * <p>
+     *     Cette méthode permet de configurer le panneau (JPanel)
+     *     à propos avec ses paramètres et son contenu unique.
+     * </p>
      *
      * @param panneau Le panneau qui recevra les paramètres et
      *                qui contiendra le contenu.

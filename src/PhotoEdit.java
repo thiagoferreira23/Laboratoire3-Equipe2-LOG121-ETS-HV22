@@ -14,9 +14,8 @@ import javax.swing.*;
 public class PhotoEdit {
     public static void main(String[] args) {
 
-        //Instancier la classe FenetreAccueil
         VueFenetrePrincipale principal = new VueFenetrePrincipale();
         SwingUtilities.invokeLater(principal);
-
+        
     }
 }
