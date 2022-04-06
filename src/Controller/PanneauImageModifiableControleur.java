@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * @version 1.0
  * @since 2022-03-17 9:57 a.m.
  */
-public class PanneauImageAvecChangementsControleur implements ActionListener {
+public class PanneauImageModifiableControleur implements ActionListener {
 
     private PerspectiveImageModifiable perspectiveImageModifiable;
 

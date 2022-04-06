@@ -1,5 +1,10 @@
 package View;
 
+import Model.PerspectiveImageFixe;
+import Model.PerspectiveImageModifiable;
+import Model.PerspectivesImage;
+import Observers.Observateur;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -23,12 +28,18 @@ import java.io.IOException;
  * @version 1.0
  * @since 2022-03-31 9:35 a.m.
  */
-public class VuePanneauImage extends JPanel {
+public class VuePanneauImage extends JPanel implements Observateur {
 
     private static final Border border = BorderFactory.
             createEmptyBorder(5, 5, 5, 5);
     private static final int hauteur = VueFenetrePrincipale.HAUTEUR;
     private static final int longueur = VueFenetrePrincipale.LONGUEUR;
+
+    PerspectivesImage perspectives = PerspectivesImage.getInstance();
+
+    PerspectiveImageModifiable pim1;
+    PerspectiveImageModifiable pim2;
+    PerspectiveImageFixe pif1;
 
     /**
      * <p>
@@ -69,6 +80,8 @@ public class VuePanneauImage extends JPanel {
     private void ajouterPanneauStatique() {
         JPanel imageStatique = new VueImageStatique();
         imageStatique.setMinimumSize(new Dimension(426, 670));
+        pif1 = perspectives.getPerspectiveFixe().get(0);
+        pif1.addObservers(this);
         add(imageStatique, BorderLayout.WEST);
     }
 
@@ -104,7 +117,18 @@ public class VuePanneauImage extends JPanel {
 
         imageDynamique2.setMinimumSize(new Dimension(852, 335));
 
+        pim1 = perspectives.getPerspectivesMod().get(0);
+        pim1.addObservers(this);
+        pim2 = perspectives.getPerspectivesMod().get(1);
+        pim2.addObservers(this);
+
         return panneauContientPanneauxDynam;
+    }
+
+    @Override
+    public void update() {
+        validate();
+        repaint();
     }
 
     /**
@@ -183,15 +207,21 @@ public class VuePanneauImage extends JPanel {
             add(sessionAnnee, BorderLayout.CENTER);
         }
 
-//        public void paint(Graphics g) {
-//            ajouterImage(g);
-//        }
+        public void paint(Graphics g) {
+            super.paint(g);
+            dessinerImage(g);
+        }
 
-        public void ajouterImage(Graphics g){
+        public void dessinerImage(Graphics g){
+
+            BufferedImage image = perspectives.getImage();
             Graphics2D g2d = (Graphics2D) g;
 
-            g2d.drawRect(0,0,50,100);
+            Point pos = perspectives.getPerspectiveFixe().get(0).getPos();
+            g2d.drawImage(image, pos.x, pos.y,150,150,this);
+
         }
+
     }
 
     /**
@@ -239,24 +269,54 @@ public class VuePanneauImage extends JPanel {
 
         public void paint(Graphics g) {
             super.paint(g);
-            dessinerImage(g, new File("src/Images/mc-laren-red.jpg"));
+            dessinerImage(g);
         }
 
-        public void dessinerImage(Graphics g, File imageChoisie){
+
+        public void dessinerImage(Graphics g){
 
             BufferedImage image = null;
+            image = perspectives.getImage();
             Graphics2D g2d = (Graphics2D) g;
 
-            try {
-                image = ImageIO.read(imageChoisie);
+            if(image != null){
+                Dimension imageSize = new Dimension(image.getWidth(),image.getHeight());
+                Dimension nouvelleSize = getScaledDimension(imageSize);
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                g2d.scale(perspectives.getPerspectivesMod().get(0).getZoom(),perspectives.getPerspectivesMod().get(0).getZoom());
+                g2d.drawImage(image, 0, 0,nouvelleSize.width,nouvelleSize.height,this);
             }
-            g2d.drawImage(image, 150, 0, 495, 330, null);
-        //    g2d.drawImage(image, 0, 0, null);
-          //  g2d.scale(-100.0, -100.0);
+
+
         }
+
+        /**
+         * Méthode pour obtenir les nouvelles dimensions d'une image en gardant le ratio de l'image original.
+         *
+         * Inspiré de "https://stackoverflow.com/questions/10245220/java-image-resize-maintain-aspect-ratio"
+         * @param imageSize
+         * @return
+         */
+        public Dimension getScaledDimension(Dimension imageSize){
+            int o_largeur = imageSize.width;
+            int o_hauteur = imageSize.height;
+            int panel_largeur = 852;
+            int panel_hauteur = 335;
+            int new_largeur = o_largeur;
+            int new_hateur = o_hauteur;
+
+            if(o_largeur > panel_largeur){
+                new_largeur=panel_largeur;
+                new_hateur = (new_largeur * o_hauteur)/o_largeur;
+            }
+
+            if(new_hateur > panel_hauteur){
+                new_hateur = panel_hauteur;
+                new_largeur = (new_hateur * o_largeur)/o_hauteur;
+            }
+            return new Dimension(new_largeur,new_hateur);
+        }
+
 
         /**
          * <p>
@@ -270,4 +330,11 @@ public class VuePanneauImage extends JPanel {
             add(imageUtilisateur, BorderLayout.CENTER);
         }
     }
+
+
+
+
+
+
+
 }

@@ -45,7 +45,7 @@ public class PerspectivesImage implements Serializable, MyObservable {
 
 
     //Getter
-    public PerspectivesImage getInstance(){ return PImages;}
+    public static PerspectivesImage getInstance(){ return PImages;}
 
     public String getChemin(){return chemin;}
 
@@ -57,7 +57,15 @@ public class PerspectivesImage implements Serializable, MyObservable {
 
 
     //Setter
-    public void setImage(BufferedImage image){this.image=image;}
+    public void setImage(BufferedImage image){
+        this.image=image;
+        for(PerspectiveImageModifiable pim : this.perspectivesMod){
+            pim.notifyObservers();
+        }
+        for(PerspectiveImageFixe pif : this.perspectiveFixe){
+            pif.notifyObservers();
+        }
+    }
 
     public void setChemin(String chemin){this.chemin=chemin;}
 
@@ -86,7 +94,7 @@ public class PerspectivesImage implements Serializable, MyObservable {
 
 
 
-    public void deserialize(){
+    public void deserialize(String chemin){
         PerspectivesImage pi = null;
         try {
             FileInputStream fileIn = new FileInputStream(chemin);

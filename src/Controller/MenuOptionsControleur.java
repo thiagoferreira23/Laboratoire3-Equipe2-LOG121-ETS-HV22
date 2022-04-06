@@ -1,14 +1,19 @@
 package Controller;
 
+import Commande.ChargerImageCommande;
 import View.VueFenetreAPropos;
 import View.VuePanneauImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * <p>
@@ -85,6 +90,7 @@ public class MenuOptionsControleur implements ActionListener {
      * ou à partir du menu.</p>
      */
     private void actionsOptionSauvegarder() {
+
     }
 
     /**
@@ -137,8 +143,22 @@ public class MenuOptionsControleur implements ActionListener {
             System.out.println("le nom et l'extension de l'image choisie : " +
                     selecteur.getSelectedFile().getName());
 
+            File selectedFile = selecteur.getSelectedFile();
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(selectedFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ChargerImageCommande chargerImage = new ChargerImageCommande();
+            chargerImage.execute(image,cheminInitial);
+
             return selecteur.getSelectedFile();
         }
+
         return null;
     }
+
+
 }

@@ -1,11 +1,19 @@
 package View;
 
+import Commande.ChargerImageCommande;
 import Controller.MenuOptionsControleur;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -89,6 +97,7 @@ public class VueMenuOptions extends JMenuBar {
     /**
      * <p>Cette méthode ajoute les options à l'option Fichier du menu.</p>
      *
+     *
      * @param menu Le menu auquel les options doivent être ajoutées.
      */
     private void ajouterOptionsFichier(JMenu menu) {
@@ -101,6 +110,8 @@ public class VueMenuOptions extends JMenuBar {
         configItemMenu(menu, 'S', optionSauvegarder);
         configItemMenu(menu, 'R', optionRestaurer);
         configItemMenu(menu, 'Q', optionQuitter);
+
+
     }
 
     /**
@@ -157,4 +168,6 @@ public class VueMenuOptions extends JMenuBar {
         sousOption.addActionListener(new MenuOptionsControleur());
         menu.add(sousOption);
     }
+
+
 }

@@ -1,7 +1,10 @@
 package Commande;
 
-public class TranslateCommande {
+public class TranslateCommande implements Icommande {
 
 
+    @Override
+    public void execute() {
 
+    }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PerspectiveImageModifiable implements Serializable, MyObservable {
 
-    private Point pos;
+    private Point pos = new Point(0,0);
     private double zoom=1;
     private ArrayList<Observateur> observateurs=new ArrayList<Observateur>();
 
@@ -24,7 +24,7 @@ public class PerspectiveImageModifiable implements Serializable, MyObservable {
 
     public void setZoom(double zoom){this.zoom=zoom;}
 
-    public void translation(Point pos){
+    public void deplacement(Point pos){
         this.pos.translate(pos.x,pos.y);
     }
 

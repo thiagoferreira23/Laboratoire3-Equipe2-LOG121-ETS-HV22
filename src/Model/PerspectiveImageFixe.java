@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PerspectiveImageFixe implements Serializable, MyObservable {
 
-    private Point pos;
+    private Point pos = new Point(120,50);
     private ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
 
     public PerspectiveImageFixe(){}
