@@ -48,8 +48,8 @@ public class VueFenetrePrincipale extends JFrame implements Runnable {
     private void initComposants(){
         setTitle(TITRE);
         setSize(LONGUEUR, HAUTEUR);
-        setMinimumSize(new Dimension(MIN_LONGUEUR, MIN_HAUTEUR));
-        setResizable(true);
+        setResizable(false);
+        setPreferredSize(new Dimension(MIN_LONGUEUR, MIN_HAUTEUR));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

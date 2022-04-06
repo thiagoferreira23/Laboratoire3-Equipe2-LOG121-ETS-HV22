@@ -1,6 +1,7 @@
 package Controller;
 
 import View.VueFenetreAPropos;
+import View.VuePanneauImage;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
