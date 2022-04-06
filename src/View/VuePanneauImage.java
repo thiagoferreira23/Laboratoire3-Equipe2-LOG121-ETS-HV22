@@ -1,14 +1,10 @@
 package View;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * <p>
@@ -120,8 +116,6 @@ public class VuePanneauImage extends JPanel {
      */
     public class VueImageStatique extends JPanel {
 
-        private JLabel imageUtilisateur = new JLabel(" ");
-
         /**
          * <p>
          * Cette méthode agit comme constructeur par défaut et permet
@@ -153,8 +147,8 @@ public class VuePanneauImage extends JPanel {
 
         /**
          * <p>
-         *  Cette méthode permet de configurer le contenu du panneau
-         *  (VueImageStatique).
+         * Cette méthode permet de configurer le contenu du panneau
+         * (VueImageStatique).
          * </p>
          */
         private void configPanneau() {
@@ -164,16 +158,10 @@ public class VuePanneauImage extends JPanel {
             JLabel sigleDuCours = new JLabel("LOG121");
             JLabel sessionAnnee = new JLabel("Hiver 2022");
 
-            imageUtilisateur.setPreferredSize(new Dimension(300, 200));
-
-            imageUtilisateur.setAlignmentX(Component.CENTER_ALIGNMENT);
             logoPhotoEdit.setAlignmentX(Component.CENTER_ALIGNMENT);
             titreLaboratoire.setAlignmentX(Component.CENTER_ALIGNMENT);
             sigleDuCours.setAlignmentX(Component.CENTER_ALIGNMENT);
             sessionAnnee.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-            add(imageUtilisateur, BorderLayout.CENTER);
-            add(Box.createRigidArea(new Dimension(426, 200)));
 
             add(logoPhotoEdit, BorderLayout.CENTER);
             add(Box.createRigidArea(new Dimension(426, 30)));
@@ -181,16 +169,6 @@ public class VuePanneauImage extends JPanel {
             add(titreLaboratoire, BorderLayout.CENTER);
             add(sigleDuCours, BorderLayout.CENTER);
             add(sessionAnnee, BorderLayout.CENTER);
-        }
-
-//        public void paint(Graphics g) {
-//            ajouterImage(g);
-//        }
-
-        public void ajouterImage(Graphics g){
-            Graphics2D g2d = (Graphics2D) g;
-
-            g2d.drawRect(0,0,50,100);
         }
     }
 
@@ -206,8 +184,6 @@ public class VuePanneauImage extends JPanel {
      * @since 2022-03-31 9:35 a.m.
      */
     public class VueImageDynamique extends JPanel {
-
-        private JLabel imageUtilisateur = new JLabel(" ");
 
         /**
          * <p>
@@ -233,41 +209,22 @@ public class VuePanneauImage extends JPanel {
                     VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
             setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
             setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
-
-            configPanneau();
         }
 
         public void paint(Graphics g) {
-            super.paint(g);
+            super.paintComponent(g);
             dessinerImage(g, new File("src/Images/mc-laren-red.jpg"));
         }
-        
-        public void dessinerImage(Graphics g, File imageChoisie){
 
-            BufferedImage image = null;
+        public void dessinerImage(Graphics g, File imageChoisie) {
+
+            Image mclaren;
             Graphics2D g2d = (Graphics2D) g;
 
-            try {
-                image = ImageIO.read(imageChoisie);
+            mclaren = new ImageIcon("src/Images/r8.jpg")
+                    .getImage();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            g2d.drawImage(image, 0, 0, null);
-            g2d.scale(-100.0, -100.0);
-        }
-
-        /**
-         * <p>
-         *  Cette méthode permet de configurer le contenu du panneau
-         *  (VueImageStatique).
-         * </p>
-         */
-        private void configPanneau() {
-            imageUtilisateur.setPreferredSize(new Dimension(852, 335));
-            imageUtilisateur.setAlignmentX(Component.CENTER_ALIGNMENT);
-            add(imageUtilisateur, BorderLayout.CENTER);
+            g2d.drawImage(mclaren, 150, 0, 495, 330, null);
         }
     }
 }
