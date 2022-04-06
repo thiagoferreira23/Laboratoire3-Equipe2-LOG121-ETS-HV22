@@ -241,7 +241,7 @@ public class VuePanneauImage extends JPanel {
             super.paint(g);
             dessinerImage(g, new File("src/Images/mc-laren-red.jpg"));
         }
-        
+
         public void dessinerImage(Graphics g, File imageChoisie){
 
             BufferedImage image = null;
@@ -253,9 +253,9 @@ public class VuePanneauImage extends JPanel {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            g2d.drawImage(image, 0, 0, null);
-            g2d.scale(-100.0, -100.0);
+            g2d.drawImage(image, 150, 0, 495, 330, null);
+        //    g2d.drawImage(image, 0, 0, null);
+          //  g2d.scale(-100.0, -100.0);
         }
 
         /**
