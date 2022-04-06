@@ -221,7 +221,7 @@ public class VuePanneauImage extends JPanel {
             Image mclaren;
             Graphics2D g2d = (Graphics2D) g;
 
-            mclaren = new ImageIcon("src/Images/r8.jpg")
+            mclaren = new ImageIcon("src/Images/mc-laren-red.jpg")
                     .getImage();
 
             g2d.drawImage(mclaren, 150, 0, 495, 330, null);

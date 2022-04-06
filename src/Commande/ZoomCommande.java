@@ -23,7 +23,7 @@ public class ZoomCommande implements Icommande {
     /*TODO: Voir ce que je met dans cette methode*/
     @Override
     public void execute() {
-
+        this.perspectiveImageModifiable.setZoom(1*zoomPourcentage);
     }
 
 
