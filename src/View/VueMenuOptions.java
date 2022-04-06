@@ -43,7 +43,8 @@ public class VueMenuOptions extends JMenuBar {
     private void initComposants() {
         setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
-        setBorder(new MatteBorder(0, 0, 2, 0, Color.decode("#454545")));
+        setBorder(new MatteBorder(0, 0, 2, 0,
+                VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
 
         creerOptionsMenu();
     }

@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 /**
@@ -19,11 +20,10 @@ import java.awt.*;
  */
 public class VuePanneauImage extends JPanel {
 
-    public static final Border BORDURE_FENETRE = BorderFactory.
-            createEmptyBorder(20, 20, 20, 20);
-
-    private GridBagLayout dispositionGrille = new GridBagLayout();
-    private GridBagConstraints contraintesDisposition = new GridBagConstraints();
+    private static final Border border = BorderFactory.
+            createEmptyBorder(5, 5, 5, 5);
+    private static final int hauteur = VueFenetrePrincipale.HAUTEUR;
+    private static final int longueur = VueFenetrePrincipale.LONGUEUR;
 
     /**
      * <p>
@@ -34,7 +34,8 @@ public class VuePanneauImage extends JPanel {
      */
     public VuePanneauImage() {
         initComposants();
-        ajouterPanneaux();
+        ajouterPanneauStatique();
+        add(ajouterPanneauxDynamiques(), BorderLayout.EAST);
     }
 
     /**
@@ -45,18 +46,12 @@ public class VuePanneauImage extends JPanel {
      * </p>
      */
     private void initComposants() {
-        setBorder(BORDURE_FENETRE);
+        setBorder(null);
         setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
-        setSize(VueFenetrePrincipale.LONGUEUR, VueFenetrePrincipale.HAUTEUR);
-
-        contraintesDisposition.gridwidth = 2;
-        contraintesDisposition.gridheight = 2;
-
-        dispositionGrille.setConstraints(this, contraintesDisposition);
-
-        setLayout(dispositionGrille);
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(longueur, hauteur));
     }
 
     /**
@@ -68,24 +63,35 @@ public class VuePanneauImage extends JPanel {
      * VuePanneauImage.
      * </p>
      */
-    private void ajouterPanneaux() {
+    private void ajouterPanneauStatique() {
         JPanel imageStatique = new VueImageStatique();
-        contraintesDisposition.gridx = 0;
+        imageStatique.setMinimumSize(new Dimension(426, 670));
+        add(imageStatique, BorderLayout.WEST);
+    }
 
-        add(imageStatique, contraintesDisposition);
+    private JPanel ajouterPanneauxDynamiques() {
+
+        JPanel panneauContientPanneauxDynam = new JPanel();
+        panneauContientPanneauxDynam.setLayout(new BorderLayout());
+        panneauContientPanneauxDynam.setBackground(
+                VueFenetrePrincipale.FOND_THEME_CLAIR);
+
+        panneauContientPanneauxDynam.setMinimumSize(
+                new Dimension(852, 670));
 
         JPanel imageDynamique1 = new VueImageDynamique();
-        contraintesDisposition.gridx = 2;
-        contraintesDisposition.gridy = 1;
+        panneauContientPanneauxDynam.add(imageDynamique1,
+                BorderLayout.NORTH);
 
-        add(imageDynamique1, contraintesDisposition);
+        imageDynamique1.setMinimumSize(new Dimension(852, 335));
 
         JPanel imageDynamique2 = new VueImageDynamique();
-        contraintesDisposition.gridx = 2;
-        contraintesDisposition.gridy = 2;
+        panneauContientPanneauxDynam.add(imageDynamique2,
+                BorderLayout.SOUTH);
 
-        imageDynamique2.setBackground(Color.ORANGE);
-        add(imageDynamique2, contraintesDisposition);
+        imageDynamique2.setMinimumSize(new Dimension(852, 335));
+
+        return panneauContientPanneauxDynam;
     }
 
     /**
@@ -100,6 +106,8 @@ public class VuePanneauImage extends JPanel {
      * @since 2022-03-31 9:35 a.m.
      */
     public class VueImageStatique extends JPanel {
+
+        private JLabel imageUtilisateur = new JLabel(" ");
 
         /**
          * <p>
@@ -118,11 +126,53 @@ public class VuePanneauImage extends JPanel {
          * </p>
          */
         private void initComposants() {
-            setBorder(BORDURE_FENETRE);
-            //setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
-            setBackground(Color.BLUE);
+            setBorder(border);
+            setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+            setBorder(new MatteBorder(0, 0, 0, 2,
+                    VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
+
+            setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
             setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
-            setSize(50, 720);
+
+            configPanneau();
+        }
+
+        /**
+         *
+         */
+        private void configPanneau() {
+            JLabel logoPhotoEdit =
+                    VuePanneauPrincipal.creerImage("App", 100, 100);
+            JLabel titreLaboratoire = new JLabel("Laboratoire 3");
+            JLabel sigleDuCours = new JLabel("LOG121");
+            JLabel sessionAnnee = new JLabel("Hiver 2022");
+
+            imageUtilisateur.setPreferredSize(new Dimension(300, 200));
+
+            imageUtilisateur.setAlignmentX(Component.CENTER_ALIGNMENT);
+            logoPhotoEdit.setAlignmentX(Component.CENTER_ALIGNMENT);
+            titreLaboratoire.setAlignmentX(Component.CENTER_ALIGNMENT);
+            sigleDuCours.setAlignmentX(Component.CENTER_ALIGNMENT);
+            sessionAnnee.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+            add(imageUtilisateur, BorderLayout.CENTER);
+            add(Box.createRigidArea(new Dimension(426, 200)));
+
+            add(logoPhotoEdit, BorderLayout.CENTER);
+            add(Box.createRigidArea(new Dimension(426, 30)));
+
+            add(titreLaboratoire, BorderLayout.CENTER);
+            add(sigleDuCours, BorderLayout.CENTER);
+            add(sessionAnnee, BorderLayout.CENTER);
+        }
+
+        public void setImageUtilisateur(JLabel imageUtilisateur) {
+            this.imageUtilisateur = imageUtilisateur;
+        }
+
+        public JLabel getImageUtilisateur() {
+            return imageUtilisateur;
         }
     }
 
@@ -138,6 +188,8 @@ public class VuePanneauImage extends JPanel {
      * @since 2022-03-31 9:35 a.m.
      */
     public class VueImageDynamique extends JPanel {
+
+        private JLabel imageUtilisateur = new JLabel(" ");
 
         /**
          * <p>
@@ -156,9 +208,21 @@ public class VuePanneauImage extends JPanel {
          * </p>
          */
         private void initComposants() {
-            setBorder(BORDURE_FENETRE);
-            setBackground(Color.GREEN);
+            setBorder(border);
+            setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+            setBorder(new MatteBorder(0, 0, 2, 0,
+                    VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
+            setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
             setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
+
+            configPanneau();
+        }
+
+        private void configPanneau() {
+            imageUtilisateur.setPreferredSize(new Dimension(852, 335));
+            imageUtilisateur.setAlignmentX(Component.CENTER_ALIGNMENT);
+            add(imageUtilisateur, BorderLayout.CENTER);
         }
     }
 }

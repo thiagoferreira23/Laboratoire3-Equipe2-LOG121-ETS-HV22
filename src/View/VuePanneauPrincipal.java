@@ -40,7 +40,8 @@ public class VuePanneauPrincipal extends JPanel {
         setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
         setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
-        setSize(VueFenetrePrincipale.LONGUEUR, VueFenetrePrincipale.HAUTEUR);
+        setPreferredSize(new Dimension(VueFenetrePrincipale.LONGUEUR,
+                VueFenetrePrincipale.HAUTEUR));
 
         GridBagLayout dispositionGrille = new GridBagLayout();
         GridBagConstraints contraintesDisposition = new GridBagConstraints();
@@ -51,7 +52,8 @@ public class VuePanneauPrincipal extends JPanel {
         dispositionGrille.setConstraints(this, contraintesDisposition);
 
         setLayout(dispositionGrille);
-        creerVueBienvenue();
+        //creerVueBienvenue();
+        creerVuesImages();
     }
 
     /**
@@ -91,7 +93,7 @@ public class VuePanneauPrincipal extends JPanel {
      */
     public static JLabel creerImage(String nomFichier, int longueur, int hauteur) {
         try {
-            String typeFichierPNG = ".png";
+            String typeFichierPNG = ".png"; //TODO : Changer pour variable
             String cheminDeBaseImages = "/Images/";
 
             BufferedImage typeImage;
