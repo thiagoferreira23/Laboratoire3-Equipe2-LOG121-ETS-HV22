@@ -213,7 +213,7 @@ public class VuePanneauImage extends JPanel {
 
         public void paint(Graphics g) {
             super.paintComponent(g);
-            dessinerImage(g, new File("src/Images/mc-laren-red.jpg"));
+            dessinerImage(g, new File("C:\\Users\\CL\\Desktop\\Lab_3\\L3_CODE_EQUIPE2\\src\\Images\\r8.jpg"));
         }
 
         public void dessinerImage(Graphics g, File imageChoisie) {
@@ -221,7 +221,7 @@ public class VuePanneauImage extends JPanel {
             Image mclaren;
             Graphics2D g2d = (Graphics2D) g;
 
-            mclaren = new ImageIcon("src/Images/r8.jpg")
+            mclaren = new ImageIcon("C:\\Users\\CL\\Desktop\\Lab_3\\L3_CODE_EQUIPE2\\src\\Images\\r8.jpg")
                     .getImage();
 
             g2d.drawImage(mclaren, 150, 0, 495, 330, null);
