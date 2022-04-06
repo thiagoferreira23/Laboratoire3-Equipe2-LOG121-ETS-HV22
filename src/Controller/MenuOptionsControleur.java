@@ -5,6 +5,7 @@ import View.VuePanneauImage;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -106,6 +107,8 @@ public class MenuOptionsControleur implements ActionListener {
         File fichierChoisi = ouvrirExplorateurFichier("Choisir une image",
                 "src/Images", "PNG, JPG, JPEG",
                 new String[]{"png", "jpg", "jpeg"});
+
+        VuePanneauImage panneauImage = new VuePanneauImage();
     }
 
     /**
