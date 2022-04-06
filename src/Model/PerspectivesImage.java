@@ -20,7 +20,7 @@ public class PerspectivesImage implements Serializable, MyObservable {
     private static int NB_IMAGE_FIXE = 1;
 
 
-    private ArrayList<PerspectiveImageModifiable> perspectiveMod = new ArrayList<>();
+    private ArrayList<PerspectiveImageModifiable> perspectivesMod = new ArrayList<>();
     private ArrayList<PerspectiveImageFixe> perspectiveFixe = new ArrayList<>();
     private String chemin;
     private ArrayList<Observateur> observeurs = new ArrayList();
@@ -34,7 +34,7 @@ public class PerspectivesImage implements Serializable, MyObservable {
     private PerspectivesImage(int nbModifiable,int nbFixe){
 
         for(int i=0;i<nbModifiable;i++){
-            perspectiveMod.add(new PerspectiveImageModifiable());
+            perspectivesMod.add(new PerspectiveImageModifiable());
         }
 
         for(int i=0;i<nbFixe;i++){
@@ -44,13 +44,80 @@ public class PerspectivesImage implements Serializable, MyObservable {
     }
 
 
-
+    //Getter
     public PerspectivesImage getInstance(){ return PImages;}
 
+    public String getChemin(){return chemin;}
 
     public BufferedImage getImage(){return image;}
 
+    public ArrayList<PerspectiveImageModifiable> getPerspectivesMod(){return perspectivesMod;}
+
+    public ArrayList<PerspectiveImageFixe> getPerspectiveFixe(){return perspectiveFixe;}
+
+
+    //Setter
     public void setImage(BufferedImage image){this.image=image;}
+
+    public void setChemin(String chemin){this.chemin=chemin;}
+
+    public void setPerspectivesMod(ArrayList<PerspectiveImageModifiable> pMod){
+        this.perspectivesMod=pMod;
+    }
+
+    public void setPerspectiveFixe(ArrayList<PerspectiveImageFixe> pFixe){
+        this.perspectiveFixe=pFixe;
+    }
+
+
+    public void serialize(String chemin){
+        try {
+            FileOutputStream fileOut =
+                    new FileOutputStream(chemin);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(this.getInstance());
+            out.close();
+            fileOut.close();
+            System.out.printf("Les données de sérialisation sont enregistré dans " + chemin);
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+
+
+
+    public void deserialize(){
+        PerspectivesImage pi = null;
+        try {
+            FileInputStream fileIn = new FileInputStream(chemin);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            pi = (PerspectivesImage) in.readObject();
+            in.close();
+            fileIn.close();
+
+            this.setChemin(pi.getChemin());
+
+            this.setPerspectivesMod(pi.getPerspectivesMod());
+            this.setPerspectiveFixe(pi.getPerspectiveFixe());
+            this.setImage(pi.getImage());
+
+
+        } catch (IOException i) {
+            i.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("PerspectivesImage class not found");
+            c.printStackTrace();
+            return;
+        }
+
+    }
+
+
+
+
+
+
 
 
 
@@ -72,4 +139,8 @@ public class PerspectivesImage implements Serializable, MyObservable {
             o.update();
         }
     }
+
+
+
+
 }
