@@ -1,6 +1,8 @@
 package Commande;
 
 
+import Model.PerspectiveImageModifiable;
+
 /**
  * <p>Description de la classe</p>
  *
