@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 /**
@@ -85,7 +86,6 @@ public class VuePanneauImage extends JPanel {
         imageDynamique1.setMinimumSize(new Dimension(852, 335));
 
         JPanel imageDynamique2 = new VueImageDynamique();
-        imageDynamique2.setBackground(Color.ORANGE);
         panneauContientPanneauxDynam.add(imageDynamique2,
                 BorderLayout.SOUTH);
 
@@ -128,10 +128,12 @@ public class VuePanneauImage extends JPanel {
         private void initComposants() {
             setBorder(border);
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+            setBorder(new MatteBorder(0, 0, 0, 2,
+                    VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
+
             setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
             setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
-
-            setBackground(Color.BLUE);
 
             configPanneau();
         }
@@ -155,8 +157,11 @@ public class VuePanneauImage extends JPanel {
             sessionAnnee.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             add(imageUtilisateur, BorderLayout.CENTER);
-            add(Box.createRigidArea(new Dimension(426, 50)));
+            add(Box.createRigidArea(new Dimension(426, 200)));
+
             add(logoPhotoEdit, BorderLayout.CENTER);
+            add(Box.createRigidArea(new Dimension(426, 30)));
+
             add(titreLaboratoire, BorderLayout.CENTER);
             add(sigleDuCours, BorderLayout.CENTER);
             add(sessionAnnee, BorderLayout.CENTER);
@@ -206,10 +211,10 @@ public class VuePanneauImage extends JPanel {
             setBorder(border);
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-            //setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
-            //setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
-
-            setBackground(Color.GREEN);
+            setBorder(new MatteBorder(0, 0, 2, 0,
+                    VueFenetrePrincipale.DIVISEUR_THEME_CLAIR));
+            setBackground(VueFenetrePrincipale.FOND_THEME_CLAIR);
+            setForeground(VueFenetrePrincipale.TEXTE_THEME_CLAIR);
 
             configPanneau();
         }

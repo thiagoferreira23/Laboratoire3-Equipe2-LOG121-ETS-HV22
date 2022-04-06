@@ -93,7 +93,7 @@ public class VuePanneauPrincipal extends JPanel {
      */
     public static JLabel creerImage(String nomFichier, int longueur, int hauteur) {
         try {
-            String typeFichierPNG = ".png";
+            String typeFichierPNG = ".png"; //TODO : Changer pour variable
             String cheminDeBaseImages = "/Images/";
 
             BufferedImage typeImage;
