@@ -56,11 +56,9 @@ public class VuePanneauImage extends JPanel {
 
     /**
      * <p>
-     * Cette méthode permet d'instancier les trois vues de cette application.
-     * Une instance de la classe VueImageStatique est créée et deux instances
-     * de la classe VueImageDynamique sont créées. Par la suite, chacune de ces
-     * classes est positionnée dans la grille et ajoutée au panneau
-     * VuePanneauImage.
+     * Cette méthode permet d'instancier une instance de la classe
+     * VueImageStatique est créée. Cette instance ne permet que d'afficher
+     * l'image.
      * </p>
      */
     private void ajouterPanneauStatique() {
@@ -69,6 +67,16 @@ public class VuePanneauImage extends JPanel {
         add(imageStatique, BorderLayout.WEST);
     }
 
+    /**
+     * <p>
+     * Cette méthode permet d’instancier les deux instances de la classe
+     * VueImageDynamique, chacune de ces classes est positionnée dans le
+     * panneau (VuePanneauImage) et ajoutée à celui-ci.
+     * </p>
+     *
+     * @return JPanel — Le panneau contenant les sous-panneaux permettant la
+     * modification d'image.
+     */
     private JPanel ajouterPanneauxDynamiques() {
 
         JPanel panneauContientPanneauxDynam = new JPanel();
@@ -139,7 +147,10 @@ public class VuePanneauImage extends JPanel {
         }
 
         /**
-         *
+         * <p>
+         * Cette méthode permet de configurer le contenu du panneau
+         * (VueImageStatique).
+         * </p>
          */
         private void configPanneau() {
             JLabel logoPhotoEdit =
@@ -219,6 +230,12 @@ public class VuePanneauImage extends JPanel {
             configPanneau();
         }
 
+        /**
+         * <p>
+         * Cette méthode permet de configurer le contenu du panneau
+         * (VueImageDynamique).
+         * </p>
+         */
         private void configPanneau() {
             imageUtilisateur.setPreferredSize(new Dimension(852, 335));
             imageUtilisateur.setAlignmentX(Component.CENTER_ALIGNMENT);
