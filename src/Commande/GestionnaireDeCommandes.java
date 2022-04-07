@@ -24,6 +24,7 @@ public class GestionnaireDeCommandes {
         return single_instance;
     }
 
+
     public void execute(Icommande cmd) {
 
         cmd.execute();
