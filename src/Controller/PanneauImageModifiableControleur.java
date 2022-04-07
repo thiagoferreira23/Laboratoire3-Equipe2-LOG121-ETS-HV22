@@ -51,6 +51,11 @@ public class PanneauImageModifiableControleur implements MouseListener {
 
     }
 
+    public void zoomIn(){
+        ZoomCommande zoomCommande = new ZoomCommande(perspective,2);
+
+        zoomCommande.execute();
+    }
     public void mouseWheelMoved(MouseWheelEvent e) {
 
         int notches = e.getWheelRotation();

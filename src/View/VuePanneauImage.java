@@ -285,6 +285,8 @@ public class VuePanneauImage extends JPanel implements Observateur {
 
                 g2d.scale(perspectives.getPerspectivesMod().get(0).getZoom(),perspectives.getPerspectivesMod().get(0).getZoom());
                 g2d.drawImage(image, 0, 0,nouvelleSize.width,nouvelleSize.height,this);
+
+
             }
 
 
