@@ -117,8 +117,11 @@ public class VuePanneauImage extends JPanel implements Observateur {
 
         imageDynamique2.setMinimumSize(new Dimension(852, 335));
 
+
+
         pim1 = perspectives.getPerspectivesMod().get(0);
         pim1.addObservers(this);
+
         pim2 = perspectives.getPerspectivesMod().get(1);
         pim2.addObservers(this);
 
@@ -288,9 +291,8 @@ public class VuePanneauImage extends JPanel implements Observateur {
 
 
             }
-
-
         }
+
 
         /**
          * Méthode pour obtenir les nouvelles dimensions d'une image en gardant le ratio de l'image original.

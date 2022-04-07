@@ -8,9 +8,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * <p>Description de la classe</p>
+ * <p>Cette classe utilise le patron Singleton et permet de créer les perspectives nécessaires pour le modèle,
+ * elle permet également d'effectuer la sérialisation et désérialisation pour les fichiers. </p>
  *
- * @author Franco Huynh, Gabriel M. Borges & Thiago Ferreira
+ * @author Alexandre Bouillon
  * @version 1.0
  * @since 2022-03-17 9:56 a.m.
  */
@@ -30,7 +31,11 @@ public class PerspectivesImage implements Serializable, MyObservable {
     private static PerspectivesImage PImages = new PerspectivesImage(NB_IMAGE_MODIFIABLE,NB_IMAGE_FIXE);
 
 
-
+    /**
+     * Créateur de l'instance avec le nombre de chaque type de perspective à créer
+     * @param nbModifiable Nombre d'instances modifiable à créer
+     * @param nbFixe Nombre d'instances fixe à créer
+     */
     private PerspectivesImage(int nbModifiable,int nbFixe){
 
         for(int i=0;i<nbModifiable;i++){
@@ -44,19 +49,41 @@ public class PerspectivesImage implements Serializable, MyObservable {
     }
 
 
-    //Getter
+    /**
+     * Accesseur de l'instance des perspectives
+     * @return l'instance des perspectives
+     */
     public static PerspectivesImage getInstance(){ return PImages;}
 
+    /**
+     * Accesseur du chemin de l'image
+     * @return Le chemin du fichier
+     */
     public String getChemin(){return chemin;}
 
+    /**
+     * Accesseur de l'image de base des perspectives
+     * @return L'image des perspectives
+     */
     public BufferedImage getImage(){return image;}
 
+    /**
+     * Accesseur de la liste des perspectives modifiable
+     * @return La liste des perspectives modifiable
+     */
     public ArrayList<PerspectiveImageModifiable> getPerspectivesMod(){return perspectivesMod;}
 
+    /**
+     * Accesseur de la liste des perspectives fixe
+     * @return La liste des perspectives fixe
+     */
     public ArrayList<PerspectiveImageFixe> getPerspectiveFixe(){return perspectiveFixe;}
 
 
-    //Setter
+    /**
+     * Mutateur de l'image de l'instance et avertit les observateurs de l'instance
+     * @param image La nouvelle image
+     */
     public void setImage(BufferedImage image){
         this.image=image;
         for(PerspectiveImageModifiable pim : this.perspectivesMod){
@@ -67,17 +94,32 @@ public class PerspectivesImage implements Serializable, MyObservable {
         }
     }
 
+    /**
+     * Mutateur du chemin du fichier de l'image
+     * @param chemin le chemin du fichier
+     */
     public void setChemin(String chemin){this.chemin=chemin;}
 
+    /**
+     * Mutateur de la liste des perspectives modifiable
+     * @param pMod La nouvelle liste des perspectives
+     */
     public void setPerspectivesMod(ArrayList<PerspectiveImageModifiable> pMod){
         this.perspectivesMod=pMod;
     }
+
 
     public void setPerspectiveFixe(ArrayList<PerspectiveImageFixe> pFixe){
         this.perspectiveFixe=pFixe;
     }
 
 
+
+    /**
+     * Cette méthode permet d'effectuer la sauvegarde et sérialisation de l'instance.
+     *
+     * @param chemin Le chemin où sauvegarder le fichier
+     */
     public void serialize(String chemin){
         try {
             FileOutputStream fileOut =
@@ -93,7 +135,10 @@ public class PerspectivesImage implements Serializable, MyObservable {
     }
 
 
-
+    /**
+     * Cette méthode permet d'ouvrir et désérialisé un fichier et récupérer une instance de perspectives
+     * @param chemin Le chemin du fichier à ouvrir
+     */
     public void deserialize(String chemin){
         PerspectivesImage pi = null;
         try {
@@ -120,15 +165,6 @@ public class PerspectivesImage implements Serializable, MyObservable {
         }
 
     }
-
-
-
-
-
-
-
-
-
 
 
     @Override

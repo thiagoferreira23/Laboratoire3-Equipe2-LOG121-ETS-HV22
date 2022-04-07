@@ -52,8 +52,7 @@ public class VuePanneauPrincipal extends JPanel {
         dispositionGrille.setConstraints(this, contraintesDisposition);
 
         setLayout(dispositionGrille);
-        creerVueBienvenue();
-      //  creerVuesImages();
+        creerVuesImages();
     }
 
     /**

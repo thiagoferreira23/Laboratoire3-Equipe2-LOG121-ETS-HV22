@@ -7,6 +7,13 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Cette classe utilise le patron Singleton pour instancier une perspective d'une image Fixe qui as seulement une
+ * position comme attribut. Sa liste d'observateurs est averti lorsqu'il y a un changement.
+ *
+ * @author Alexandre Bouillon
+ * @révision Hiver 2022
+ */
 public class PerspectiveImageFixe implements Serializable, MyObservable {
 
     private Point pos = new Point(120,50);
@@ -14,13 +21,13 @@ public class PerspectiveImageFixe implements Serializable, MyObservable {
 
     public PerspectiveImageFixe(){}
 
-    public PerspectiveImageFixe(Point pos){
-        this.pos=pos;
-    }
 
+    /**
+     * Accesseur de la position de la perspective
+     * @return La position
+     */
     public Point getPos(){return pos;}
 
-    public void setPos(Point pos){this.pos=pos;}
 
 
 
