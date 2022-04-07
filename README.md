@@ -1,5 +1,5 @@
 <h1>Laboratoire 3 | LOG121 | Hiver 2022</h1>
-<h3>Créateurs : Franco Huynh, Gabriel M. Borges & Thiago Ferreira</h3>
+<h3>Créateurs : Franco Huynh, Gabriel M. Borges, Alexandre Bouillon & Thiago Ferreira</h3>
 
 <p>
 But du laboratoire :
