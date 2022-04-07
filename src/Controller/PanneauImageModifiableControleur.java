@@ -24,16 +24,15 @@ public class PanneauImageModifiableControleur implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         Point imagePosition = vueImage.getGraphics().getClipBounds().getLocation(); //GET IMAGE POSITION
         Point mousePosition = e.getPoint();
         int nvPositionX = (int) (imagePosition.getX() + mousePosition.getX());
         int nvPositionY = (int) (imagePosition.getY() + mousePosition.getY());
         //this.vueImage.getGraphics().set()... //SET NEW POSITION
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
     }
 
     @Override
