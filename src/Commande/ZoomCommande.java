@@ -20,8 +20,6 @@ public class ZoomCommande implements Icommande {
         this.perspectiveImageModifiable = perspectiveImageModifiable;
         this.zoomPourcentage = zoomPourcentage;
     }
-    /*TODO: Voir ce que je met dans cette methode*/
-
     public void undo(){}
 
     @Override

@@ -17,15 +17,22 @@ import java.awt.event.*;
 public class PanneauImageModifiableControleur implements MouseListener {
     private VuePanneauImage vueImage;
     private PerspectiveImageModifiable perspective;
+
     public void PanneauImageAvecChangementsControleur(VuePanneauImage vuePanneau, PerspectiveImageModifiable perspective) {
         this.vueImage = vuePanneau;
         this.perspective = perspective;
     }
-
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque le mouse  est cliqué.</p>
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
     }
-
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque le mouse  est séléctionné.</p>
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         Point imagePosition = vueImage.getGraphics().getClipBounds().getLocation(); //GET IMAGE POSITION
@@ -34,27 +41,52 @@ public class PanneauImageModifiableControleur implements MouseListener {
         int nvPositionY = (int) (imagePosition.getY() + mousePosition.getY());
         //this.vueImage.getGraphics().set()... //SET NEW POSITION
     }
-
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque le mouse  est déselectionnéé.</p>
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
-
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque la souris rentre dans l'espace de l'image.</p>
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
 
     }
-
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque la souris sort de l'espace de l'image.</p>
+     */
     @Override
     public void mouseExited(MouseEvent e) {
 
     }
-
+    /**
+     * <p>Cette méthode permet de gérer lorsque on zoom in l'image.
+     * Elle exectue la commande zoom de la classe zoomCommande.</p>
+     */
     public void zoomIn(){
         ZoomCommande zoomCommande = new ZoomCommande(perspective,2);
 
         zoomCommande.execute();
     }
+    /**
+     * <p>Cette méthode permet de gérer lorsque on zoom out l'image.
+     * Elle exectue la commande zoom de la classe zoomCommande.</p>
+     */
+    public void zoomOut(){
+        ZoomCommande zoomCommande = new ZoomCommande(perspective,2);
+
+        zoomCommande.execute();
+    }
+    /**
+     * <p>Cette méthode gère les méthodes et les actions à être exécutées
+     * lorsque la roue de la souris bouge.</p>
+     */
     public void mouseWheelMoved(MouseWheelEvent e) {
 
         int notches = e.getWheelRotation();
