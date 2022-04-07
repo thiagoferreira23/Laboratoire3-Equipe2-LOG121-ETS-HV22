@@ -65,7 +65,7 @@ public class PanneauImageModifiableControleur implements MouseListener {
             perspective.setZoom(temp);
             //resizeImage();
         }
-        // double factor = Math.pow(perspective.getZoom(), 0);
+        //double factor = Math.pow(perspective.getZoom(), 0);
         //perspective.setSize((int) (vueImage.getWidth() * factor), (int) (vueImage.getHeight() * factor));
 
     }

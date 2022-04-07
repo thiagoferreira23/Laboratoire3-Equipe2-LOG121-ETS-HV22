@@ -15,6 +15,9 @@ public class TranslateCommande implements Icommande{
         this.positionX = positionX;
         this.positionY = positionY;
     }
+
+    public void undo(){}
+
     @Override
     public void execute() {
         this.perspectiveImageModifiable.setPos(new Point(positionX, positionY));
