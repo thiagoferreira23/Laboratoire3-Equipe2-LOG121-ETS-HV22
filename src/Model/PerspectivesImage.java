@@ -102,13 +102,16 @@ public class PerspectivesImage implements Serializable, MyObservable {
 
     /**
      * Mutateur de la liste des perspectives modifiable
-     * @param pMod La nouvelle liste des perspectives
+     * @param pMod La  liste des perspectives modifiable
      */
     public void setPerspectivesMod(ArrayList<PerspectiveImageModifiable> pMod){
         this.perspectivesMod=pMod;
     }
 
-
+    /**
+     * Mutateur de la liste des perspectives fixe
+     * @param pFixe La liste des perspectives fixe
+     */
     public void setPerspectiveFixe(ArrayList<PerspectiveImageFixe> pFixe){
         this.perspectiveFixe=pFixe;
     }
